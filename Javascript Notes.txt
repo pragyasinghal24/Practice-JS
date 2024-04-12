@@ -1,0 +1,816 @@
+Javascript Notes Feb-2024 By Shardha khapra 'Apna COllege':
+
+1.) For show code on console.log use key command F12. Console.log is used to log(print) a message to the console. 
+
+2.) When we clear the console content than use Ctrl + K or in Mac use Cmd + K
+
+3.) In Console use this code for create alert(popups):
+
+Output: alert('Hello World') than press enter we can show 'Hello World' popups
+
+4.) When we press Ctrl + R than console window will be blank
+
+5.) When we click on 'Uparrow key' on console.log window the previous code will print automatically.
+
+6.) Extensions like: 
+
+.js -Javascript, .css - CSS, .java - Java, .py - Python, .cpp - C++
+
+7.) VS code is free and popular editor by Microsoft.
+
+8.) ! use this sign for Biolerplate html code means automatically print syntax/basic structure of HTML.
+
+9.) Difference between 'Null' and 'Undefined':
+
+Null - Value hai but not found right now/ Absence of an object whereas Undefined - Don't know what is this
+
+10.) JS is dynamically typed language, we can store any type of value(number, string, boolean, etc.) but not in other languages.
+
+Chapter- 1: Variables & Datatypes:
+
+11.) Variable in JS: 
+
+Note: Variables are container for data storage. In english terms 'Vary' means different. Memory location called variables
+
+1.) Variables Rules:
+
+    a.) Variable names are case sensitive; 'a' & 'A' are different.
+    b.) Only letters, digits, underscore(_) and $ is allowed.(not even space like 'full name' not allowed)
+    c.) Only a letter, underscore(_) and $ should be 1st character (like $fullname, _fullName, fullName).
+    b.) Resreved words cannot be variable names (like break, continue, delete, etc) we cannot use this as a varibale in JS.
+
+2.) fullName - Camel case (Right way to write the variable)
+    fullname - Wrong
+    full_name - Snake case
+    full-name - kabab case
+    FullName - Pascal case    
+
+3.) Variable Categories/Keywords: let, const and var
+
+    a.) var - Variable can be re-declared & updated. A global scope variable.
+    b.) let - Variable cannot be re-declared but can be updated. A block scope variable. 
+    c.) const - Variable cannot be re-declared or/nor updated(means 'const' value cannot be changed). A block scope variable.
+
+    age = 24, name = 'Tony' : X (Wrong way) to define variable use let, const and var keywords to define the correct way of varibale like
+
+    let age = 24;
+    let fullName = 'Tony';
+    var totalPrice = 2000;
+
+    Note: Before 2015 we can use only 'var' keyword because we don't have 'let' and 'const' keyword, but now we
+    can use only 'let' and 'const' keyword. After 2015 'ES6' features(ECMA script 2015) is defined so we find 'let' and 'const' keyword.
+
+    Example: 
+    
+    var age = 24; //redeclare
+    var age = 20; //redeclare
+    var age = 60; //redeclare
+    console.log(age);
+
+    Output: 60
+
+Note: This is wrong way to define variable because it's so confusing to redeclare again and again in JS code so to avoid this confusion now we can use only 'let' and 'const' keyword.
+
+Example: a.) Declaring of 'let' variable:
+
+    let age = 24; //declare once
+    age = 20; //updated value
+    age = 60; //updated value
+
+    console.log(age);
+
+     b.) Declaring of 'const' variable(fixed variable): like PI, Area, e, etc  const age = 24; const PI = 31.4;
+
+     c.) let a; 
+        Output: Undefined
+        but let a = 10;
+        Output: 10
+
+        but the same method not used in 'const' it throws the error message just like 'Uncaught expression something'
+
+Note: 'Block scope' means { code } //curly braces. Example:
+
+{
+    let a = 5;
+    let a = 10; //wrong way because it's cannot be redefined. If we want to redeclare the value of 'a' than use another 'block scope' variable.
+    console.log(a);
+}
+
+Output: 5
+
+{
+    let a = 10;
+    console.log(a);
+}
+
+Output: 5
+        10
+
+12.) Datatypes in JS: Datatypes are like types in JS.
+
+1.) Categories are: 
+
+    a.) Primtive Datatypes(7): Number, String, Boolean, Null, Undefined, BigInt, Symbol.
+    b.) Non-Primtive Datatypes: Objects(Arrays, Functions). 
+
+Note: We can show type of datatype in JS/Console.log like this: 
+
+Example of Primtive Datatypes: 
+
+let age = 24;
+let price = 10.94;
+let y = undefined;
+let isFollow = true;
+let x = null;
+let a = BigInt('12334');
+let y = Symbol('Hello!');
+
+Output: age = 24; 
+        typeof age = 'number';
+        typeof isFollow = 'undefined'
+        typeof x = 'object'
+        a = 12334n // n define 'BigInt' variable
+        typeof a = 'BigInt'
+        typeof y = 'symbol'
+
+2.) a.) Objects are collection of values/properties or we can say that collection of student details.
+
+        Example: Student details like name(String), age(number), marks(Number), isPass(Boolean)
+
+    b.) Objects is based on key values. We can access 'keys' with 2 types. First one is .key and second one is [key]
+    
+        Syntax:  key : value, obj.key and obj['key']
+        Example: 
+        {
+            age : 24, //where age, name are keys
+            name: 'Tony';
+        }    
+
+        Example2: 
+        
+        const student = {
+            age : 20, 
+            fullName: 'Rahul',
+            cgpa: 8.2,
+            isPass: 'true';
+        } 
+        console.log(student);
+        console.log (student['fullName']);
+
+        Output: {age: 20, fullName: 'Rahul', cgpa: 8.2, isPass: 'true'}
+        typeof student: 'object'
+        Rahul
+
+        student['age'] = student['age'] + 1; //Change values in object:
+        console.log(student['age']);
+
+        Output: 21
+
+        student['name'] = 'Rahul Sharma';
+        console.log(student['name']);
+  
+Note: When we use .dot(student.age) key not need to '' or "" but when we use (student['age'])key we need '' or "" in this '' or "" not a string we used as a variable name.
+
+Note: We can change objects keys/properties only when we used 'const' variable but cannot change 'student'(object name).
+
+Note: In objects use : to pass the information of any object. Syntax of Object:
+
+const objectname = {
+    obj.key : value;
+}
+
+* How we print type of an object: console.log(typeof profile);
+
+Note: let - updated, const - not updated and const obj -> key - updated
+        
+Note: When we add number in 'Strings' it must be concatenate the value like:
+
+'123' + 1 = 1231, 'abcd' + 123 = abcd123
+
+so that's why strings are unique.
+
+Chapter- 2: perators & Conditional Statements:
+
+13.) Operators & Conditional Statements:
+
+a.) Comments in JS: Part of code which is not executed.
+
+// Single line comment
+/* Multi-line comment */
+
+b.) Operators in JS: Used to perform some operation on data. These are: 
+
+    * Modulus, *Exponentiation, *Increment, *Decrement
+
+Example: a + b //where + is operator and b is operand the full is expression
+
+c.) % - modulus(reminder), **(Exponentiation(square root)) a**b = 2**2 = 4;
+
+d.) Comparison Operators: ==, ===, !=, !==, >, >=, <, <==
+
+Example:
+let x = 5; //number
+let y = '5'; //string
+console.log('x == y', x == y); //true
+
+Note: If we use == a number and string are on same values than output will be true, if we want that a number and string arenot shown
+as true than use === that returns both datatype and value.
+
+e.) Logical Operators: &&, || and !
+
+*Table of Logical && where t(true) and f(false): 
+
+cond1  cond2 Result(&&)
+
+T       T     T
+F       F     F
+T       F     F
+F       T     F
+
+*Table of Logical &|| where t(true) and f(false): 
+
+cond1  cond2 Result(||)
+
+T       T     T
+F       F     F
+T       F     T
+F       T     T
+
+*Logical ! where t(true) and f(false) means true -> false and false -> true(opposite): 
+
+f.) Conditional Statements: to implement some condition in the code. These are: if Statement, if-else Statement,
+else-if Statement and Switch Statement.
+
+* if Statement: 
+
+Example: How to switch mode in light or dark:
+
+let color;
+if(mode === 'dark-mode'){ //(paranthesis) and mode === 'dark-mode' is an expression { curly braces }
+    backgroundColor = 'black'; //code
+}
+if(mode === 'light-mode'){
+    backgroundColor = 'blue';
+}
+
+*if-else Statement:
+
+let mode1 = 'dark';
+let color;
+if(mode1 === 'dark'){
+    color = 'black';
+}
+else{
+    color = 'blue';
+}
+console.log(color);
+// Output: black.
+
+Note: Use (;) in if-else condition, this is a syntax rules and its compulsory.
+
+* else-if Statements: //multiple conditions check at one time. Syntax are:
+
+if(cond1){
+   code
+}
+else if(cond2){
+   code
+}
+else{
+   code
+};
+
+* Nested-if Statement: means if inside another if and many more. Example: Print 'star'.
+
+* Ternary Operators: conditions ? true output : false output //special operator
+
+Example: age > 18 ? 'adult' : 'not adult'
+
+Note: 2 operands: a + b, 1 operand: a++, a-- //3 Operands // a ? b : c
+
+let aged = 16;
+let result = aged >= 18 ? 'adult' : 'not adult';
+console.log(result); // not adult
+
+or
+
+let aged = 25;
+aged >= 18 ? console.log('adult') : console.log('not adult');
+
+*MDN Docs: where we find documentation of any particular language 
+
+https://developer.mozilla.org/en-US/
+
+* Switch Statement:
+ 
+Syntax: 
+
+const expression = '';
+switch (expression){
+    case expression1:
+    Statements
+
+    case expression2:
+    Statements
+
+    ..//
+
+    case expressionN:
+    Statements
+    break;
+
+    deafult:
+    Statements
+} 
+
+Note: console.log(Num, 'is not multiple of 5'); //when , is available than no need to space like ' is' beacuse where , is available space automatically
+added.
+
+Chapter- 3: Loops & Strings:
+
+14.) Loops in JS: Loops in Js are used to execute a piece of code again & again. These are: for loop, while loop, forEach loop, do-while loop
+
+a.) for Loop:
+
+Syntax: 
+
+for (initialization, condition, Increment/Decrement){
+    //code execute
+}
+
+b.) Infinite Loop: A loop that never ends. //stopping condition -> true i.e infinte loop 
+
+for(i = 1; i >= 0; i++){ //condition always true
+    console.log('i = ', i); //infinite loop
+}
+
+c.) While loop: No need to use semicolon at the end.
+
+Syntax: 
+
+initialization;
+while(condition){
+    //code execute
+Increment/Decrement;
+
+}
+
+d.) Do-while loop: At least run 1 time/always run 1 time and always use semicolon at the end of while condition.
+
+Syntax: 
+
+initialization;
+do {
+    //code execute
+   Increment/Decrement;
+}while(condition);
+
+e.) for-of loop: Used for arrays and strings, with space count. Mainly for strings. In case we use in array we can access the array but 
+not print new array/updated array, when you want to print new array/updated array than use only for-in loop.
+
+Syntax:
+
+for(let val of strVal){ //iterator - characters
+    //code execute
+}
+
+f.) for-in loop: Used for objects/arrays, returns as keys in object. Not in strings
+
+Syntax:
+
+for(let key in strKey){ 
+    //code execute
+}   
+
+Note: When we use 'prompt' the number will be return in the form of 'string', so don't use !==(double equal to) you can 
+use only !=(single equal to) just like practice Q2(game number).
+
+15.) Strings in JS: String ia a sequence of characters used to represent text. These are: 
+
+a.) Create String: let str = 'Apna College'
+b.) String Length: str.length
+c.) String Indices(plural form of Index): str[0], str[1], str[2]
+d.) Template Literals: A way to have embedded expression in strings(special type of strings) `this is template literal` - Backtick
+
+Note: Why we use 'Template literal' instead of '', "" - To combine the single string and use $ sign to ${obj.key}
+
+Example: 
+let obj = {
+   item: 'Pen',
+   price: 10,
+};
+
+console.log('the cost of', obj.item, 'is', obj.price, 'rupees'); //multiple string like the cost of, is , rupees to avoid use multiple
+strings than we use 'Template Literals'.
+
+Output: the cost of Pen is 10 rupees //where 10 *is highlighted becoz it's a number but not in 'Template Literal' because in this it's a string
+
+Use of Template Literals: 
+
+let output = `the cost of ${obj.item} is {obj.price} rupees`
+console.log(output);
+
+Output: the cost of Pen is 10 rupees //where 10 is not highlighted as give reason above
+
+*String Interpolation: To create string by doing substitution of placeholders
+
+Syntax: `string text ${expression}string text`
+
+e.) Escape characters: \n - new line, \t - tabs space
+
+Example: 
+let str5 = 'Apna\tCollege'; //string
+console.log(str5.length); //12 whrere \t also counts in length
+
+f.) String Methods in JS: These are built-in functions to manipulate a string. All string methods not change the original value of string but retruns new value/string.
+Strings in js are immututable means not change original strings always returns new string. 
+
+   *str.toUppercase(), 
+   *str.toLowercase(), 
+   *str.trim( ) //remove whitespace  only starting space, ending space not removes mid spacing,
+   *str.slice(start, end?) //returns part of string at least given starting index -> abcdefg //ending value not included
+   *str1.concat(str2) //joins str2 with str1
+   *str.replace(searchVal, newVal)
+   *str.CharAt(index) //finding any character through this
+
+Note: Always make a new string to change the original string content.   
+
+*Like log is a method
+
+Chapter 4 - Arrays: collection of items. Stores same type of information like student marks, we can store as an object as a key but array is a better way to use this.
+In array single value no key pairs. Same type of information. Arrays represents with [] and object represents with { }. Array is a special type of object.
+Create an array:
+
+let heroes = ['ironname', 'bulk', 'batman'];
+let marks = [23, 34, 45];
+let info = ['rahul', 86, 'delhi'];
+
+a.) Array Indices in JS: arr[0], arr[1], arr[2]...
+
+*Note: Strings cannot be changed such as arrays like marks[0] = 23. Strings -> immututable, Arrays -> Mutuable. In Strings we cannot changed
+through indices but arrays can. String will always be retruns as new string but array not always returns new array but updated arrays also through array methods.
+
+Example: str = 'hello';
+         str[0] = 'y'; //y
+         console.log(str); //hello
+
+b.) Loop over arrays: Print all elements of an array. 
+
+Loops -> iterable(Strings, objects, arrays) where strings are collection of characters, objects are collection of key value pairs
+and arrays are collection of similar items(values).
+
+let arr = [1, 2, 3, 4, 5] //arr.length = 5
+           |  |  |  |  |
+        
+           0  1  2  3  4
+
+Example: for(let idx = 0; i < arr.length; idex++){ } //arr.length will not be <= arr.length, its always < arr.length
+
+Note: If you want to arr.length <= than use:
+
+for(let idx = 1; idx <= arr.length; id++){
+    console.log(arr[idx - 1]); //1 2 3 4 5 it's not standard way to write
+}
+
+* We can use both 'for-of loop' and 'for-in loop' in arrays but mostly 'for-of' loop is used.
+
+* New array - means we can create array like we can input the array one by one
+* Updated array - means replace new values from original values. Already have an array and you updated the new one.
+
+c.) Array Methods in JS: All methods are start with small letter.
+
+    *push() - add to end
+    *pop() - delete from end & return deleted value
+    *toString() - converts array to string
+    *concat() - joins multiple arrys & returns result
+    *unshift () - add to start
+    *shift() - delete from start & return deleted value
+    *slice() - returns a piece of the array not change original array // slice(startIdx, endIdx) //slice(1, 3) ending index(3) non inclusive means 
+    only 1 and 2 not included 3 -> makes copy of an array, if we return only slice without defining index than it returns the full array
+    *splice() - change original array(add, remove, replace) //splice(startidx, delCount, newEl(add..))
+                                            |
+                                         3 parameters   
+    Note: *When we didn't pass deleted elements in splice than automatically delete element from starting index and returns new array
+    splice(4) //not define deleted elements, index[4] also included in delete item example seen in first.js
+
+    * When you don't pass any index in splice() method then returns the same array as we print in last 
+    console.log(numbersArray.splice()); 
+
+*DSA - Data Structures and Algorithms
+*Instance - copy(refrence) use 'new' keyword to create an Instance of  a class
+*log - print msg on console window
+*() - paranthesis, [] - square brackets, {} - curly braces
+*NAN - Not a number
+*Keywords: Keywords are the words that are reserved for special purposes.
+*Literals: Literals are the data items that are fixed data values.
+
+Chapter- 5 : Functions in JS: 
+
+A Block of code that performs a specific task, can be invoked(call) whenever needed. Example:
+
+PM -> PS(Personal Secretary) -> Driver -> Cook, when he is needed like cook every time he asked only for cook not other like driver or PS so same as in 
+
+'Functions they used for particular task(piece of code)' at once in a program in block and every time they invoke(call)
+like 'toUppercase', 'push' and many other they all are functions.
+
+    * Making Custom Functions in JS: Through these are
+    a.) Function Definition: 
+    
+    Syntax: 
+
+            function functionName(){ //where 'function' is a Resreved word
+            //do some work
+            }
+
+            function functionName(parameter1, parameter2){
+                //do some work
+            }
+
+    Example: 1.) When company hiring 'Web developer' role so they mentioned the 'roles & responsibilties' regarding this role
+             2.) When we hire 'cook' and tells his/her responsibilties
+
+    *During 'function define' they called 'parameters'.     
+
+    b.) Function Call(Invoke): 
+    
+    Syntax: functionName(''); // ' ' argument 
+
+    Example: 1.) When company assigned a task to 'Web developer'
+             2.) When they call 'cook' and told today 'paneer' is prepared
+
+    *During 'function call' they called 'arguments'. 
+
+    *They are interchangable also but the correct way is only that            
+
+*Note: If we can define the function only never print the message in console window, to print the message we need to call the function.
+
+*Functions avoid 'redundancy' means not repeat duplicate code again and again 
+
+*Functions always return value through 'return' keyword(reserved keyword). After 'return' if we write on code in 
+console.log('after return') then its never run/execute msg that's why we use last statement of code is 'return'.
+
+*function params -> like local variables of function -> block scope
+
+*Functions can also stored in variables(like const) and then they called be a 'function'.
+
+*Always use functions/method in paranthesis().
+
+a.) Arrow functions: Compact way(short way) of writing a function. Arrow functions are part of Modern Javascript. We can use only for small functions like sum , mul, etc.
+We can also print the msg throguh this without given any input :
+
+Example: 
+
+const printHello = () => {
+   console.log('hello');
+}
+
+Syntax: const functionName = (param1, param2 ...) => {
+           //do some work
+        }
+Example: 
+
+const sum = (a, b) => { //right-side part is arrow function where const 'sum' is a variable that stored arrow functions so, now 'sum' is also a function
+    return a + b;
+}
+console.log(sum);
+
+b.) forEach Loop in Arrays: arr.forEach(callback function) //callback is a function to execute for each element in the array.
+
+* A callback is a function passed as an argument to another function. forEach is a method just like 'toUppercase' is a function but when bind with strings than its called method,
+similar as forEach is a function that binds with arrays/object so its called method. This method/function is only used for arrys not strings, if we use in strings than automatically show error.
+
+Syntax: 
+arr.forEach(function functionName (val) => {
+    console.log(val);
+})
+
+// OR With Arrow function:
+
+arr.forEach((val) => {
+  console.log(val);
+});
+
+*Note: Functions call also pass as parameters(through variables, numbers, strings) + return the function value as. Like:
+
+1.) function abc(){
+    console.log('hello world');
+}
+
+Same as:
+function myFunc(abc){
+    retrun abc;
+}
+
+2.) function myFunc(num){
+    return num;
+}
+
+*Note: We can also use through three parameters like (value(item), idx(index) and array(itself)); By deafult parameter is arr(array-name) itself.
+Example: 
+
+//With index parameter
+Cities.forEach((val, idx, Cities) => {  //print each element in the array using forEach i.e. callback(val, idx, cities)
+    console.log(val.toUpperCase(), idx, Cities); //DELHI 0, PUNE 1, MUMBAI 2
+})
+
+*Interview question: 
+
+*Higher Order function/methods(HOM/HOF): forEach function is used as 'high order function' is used as a either take function -> parameter or function -> return as a value.
+When we see there is callback function this is called hom/hof. It is either take another function as a parameter inside them or they return another function as their output.
+
+c.) Some More Array Methods: Map, Filter and Reduce
+
+    1.) Map method: Creates a new array with result of some operation. The value its callback returns are used to form new array. Similar as 'forEach method' but the difference is map always create new array but 'forEach method' returns original array.
+
+    Syntax: arr.map(callFnx(value, index, array));
+
+    Example: 
+
+    let newArr = arr.map((val) => {
+       return val * 2;
+    });
+
+    2.) Filter method: Creates a new array of elements that give true for a conditon/Filter. Set of filtered out array/numbers not change in original array. Eg: all even elements
+
+    Syntax: 
+    let newArr = arr.filter((val) => {
+       return val % 2 === 0;
+    });
+
+    3.) Reduce method: Perform some operations & reduces the array to a single value. It returns that single value.
+    
+    Syntax: 
+    arr.reduce((previous-value / initial-value, current-value) => {
+      return previous-value + current-value;
+    });
+
+    Example: Calculate Sum, Average, Largest/Smallest Number //accumulator(result):
+
+    let arr = [1, 2, 4, 5]; // res = 1, curr = 2 = 1 + 2 = 3
+
+
+Note: Difference between Map() and Filter() method:
+
+Map Method:
+
+. The map method creates a new array by applying a function to each element of the original array.
+. It doesn't change the original array; instead, it returns a new array with the modified elements.
+. The length of the new array will be the same as the original array.
+
+Example:
+const numbers = [1, 2, 3, 4, 5];
+const doubledNumbers = numbers.map(num => num * 2);
+// doubledNumbers will be [2, 4, 6, 8, 10]
+
+Filter Method:
+
+. The filter method creates a new array with only the elements that pass a test (specified by a function).
+. It doesn't modify the original array; instead, it returns a new array with the elements that satisfy the condition.
+. The length of the new array may be less than or equal to the original array, depending on the filtering condition.
+
+Example:
+const numbers = [1, 2, 3, 4, 5];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+// evenNumbers will be [2, 4]
+
+*Array always starts with 0
+
+2.) Window Object: The window object represents an open window in a browser. It is  browser's object(not Javascript)
+& is automatically created by browser. 
+
+It is a global object with lots of properties & methods.
+
+*console.log(), alert(), prompt these are part of window object, we can use like this:
+
+window.console.log('hello'); //hello
+
+3.) What is DOM? When a web page is loaded, the browser creates a Document Object Model(DOM) of the page.
+
+window(node) -> document(node) -> html(node) -> head(meta, title, link) -> body(div(img, h1, p, div), script) // where document is a model/representation of html like a tree. 
+In a tree every box is a node(object) hirerachial model     
+
+// where 'body' is parent tag and 'div', 'script' are child tags whereas 'div' is parentNode for 'img, h1, p' tags these are childNodes.
+parent -> child -> grandChild(descendants) -> siblings(div, script and img, h1, p)
+
+console.dir(window.document); -> use to find object/properties/methods of document
+
+console.log('hello'); //print the msg
+window.console.log('hello2'); //global object
+alert('hello');
+console.dir(window.document); //document -> show properties/methods -> print object
+console.log(window.document); //show html structure (html, head, body) but not use usually 
+document.body.style.background = 'green';
+document.body.childNodes[1].innerText = 'abcd'; //if we write something in body like h1 content, so change content through this tag
+
+*When we use dynamic changes/manipulation without using html/css, we use through DOM.
+
+    1.) DOM Manipulation: Access all elements through these:
+
+        a.) Selecting with id: document.getElementById('myId'); //It is always be unique, but if we define same color/some css property than we use same id with different tags/divs.
+        b.) Selecting with id: document.getElementsByClassName('myClass');
+        c.) Selecting with id: document.getElementsByTagName('p');
+        d.) Query Selector: document.querySelector('myId/ myClass/ tag') //returns first element
+                            document.querySelectorAll('myId/ myClass/ tag') //returns a NodeList
+
+* If we load script.js in head not body then use this tag: console.dir(document.body) //Output - null if we write script.js tag in head section
+
+*Latest/Modern way to use DOM Manipulation is: Query Selector -> NodeList
+
+e.) Properties: get/set/change the value
+
+    .tagName: retruns tag for element nodes
+    .innerText: returns the text content of the element and all its children (div -> h3 -> ul -> li, li, li)
+    .innerHTML: returns the plain text or HTML contents in the element
+    .textContent: returns textual content even for hidden elements
+
+*DOM tree has 3 nodes these are: text nodes, comment nodes and element nodes. Element nodes are most commonly used and 'text and comment nodes' are probably 
+ignored but 'byDefault' in a body 'text nodes' are print.
+
+*Nodes have: first-child and last-child property, children property these are included in navigation means 1 level to 2 level and many more..
+
+*Interview question: Difference between innerText and innerHTML: 
+
+.innerText only shows text content whereas innerHTML shows the tags/structure/formatting the html content also. Through both we get values but we set vales through textContent.
+
+*We can change content during runtime like: 
+
+div.innerText = 'abcd' so automatically print content in browser and changes in html code also i.e abcd and all content/tags will be hidden
+div.innerHTML = '<div>inner div</div>' same as innerText
+
+*dir: The dir attribute is used to set the base 'direction of text' for display. It stands for Directory element.
+
+*Apppend: The Element.append() method inserts a set of Node objects or string objects after the last child of the Element / adding somethig in last
+
+//Chapter - 7: DOM - Part 2:
+
+f.) Attributes:  . getAttribute(attr) //to get the attribute value
+                 . setAttribute(attr, value/newvalue) //to set the attribute val th //change the value
+
+Syntax: let attrname = div.getAttribute('attr');                 
+
+*where attribute refers to give the additional information in the elements like id attr, src attr, class attr, name attr                 
+
+g.) Style: . node.style //When we use through class then use this type of JS: 
+
+inner.style.backgroundColor = 'blue';
+                  
+h.) Insert Elements: let el = document.createElement('div'); //Use createElement to create new tag
+
+. node.append(el) //adds at the end of node(inside)
+. node.prepend(el) //adds at the start of node(inside)
+. node.before(el) //adds before the node(outside)
+. node.after(el) //adds after the node(outside)
+
+i.) Delete Elements: 
+
+. node.remove() //removes the node
+
+j.) classList methods:
+
+div.classList.remove('');
+div.classList.add('anotherClass');
+
+//Chapter 8: Events in JS: We can use 'events' to trigger somethig
+
+The change in the state of an object is known as Event. Events are fired to notify the code of 'interesting changes' that may affect code execution.
+
+.Mouse events(click, double click, onmouseover etc)
+.Keyboard events(keypress, keyup, keydown)
+.Form events(submit etc)
+.Print event and many more
+.onmouseover: In a div when we want to move mouse than use this event
+
+*Button attributes: onclick
+
+*Inline event handling: When we write js in html tags but not prefer generally
+
+a.) Event handling(inline Handling) in JS: Drawback is multiple html code wrote not to handle easily that's why we use 2 evnt through function
+
+Syntax: node.event = () => { 
+          //handle here
+        }
+Example: btn.onclick = () => { }
+
+*Notes: 
+
+1.) If we have 'inline event handling' and 'JS event handling' also perform the same event/with using same class/id than 'Javascript event' are
+always first prioritize.
+
+2.) When we handle same event like onclick we use multiple times in our JS than always prioritize 'last one' like in first.js 'handler2'.
+1 event overwrite 2 one/last one.
+
+b.) Event Object(JS through function): Drawback is we can only 1 function at a time that's why we use 'evnt listeners'
+
+It is a special object that has details about the event. All event handlers have access to the Event Object's properties and methods.
+
+Syntax: node.event = (e) => { //where e is a event object
+          //handle here
+        }
+e.target, e.type, e.clientX, e.clientY -> Event Handlers
+
+c.) Event Listeners: These are the events that always listen, and we can create multiple 'event listeners' at a time and also perform same event with multiple 'event listeners' that's why we always prefer this
+
+Syntax: node.addEventListener('event', callback) //callback(function) is a function to pass as an argument in another function also called 'handler/event handler' where evt is click, dbclick
+        node.removeEventListener('event', callback)
+
+Note: the callback refrence(like handler3, same variable name with same callback fucntion name) should be same to remove        
